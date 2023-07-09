@@ -21,7 +21,7 @@ from measurements.views import ProjectView, MeasurementView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('/projects/<id>', ProjectView.as_view()),
-    path('/measurement/<id>', MeasurementView.as_view()),
+    path('/projects/<pk>', ProjectView.as_view()),
+    path('/measurement/<pk>', MeasurementView.as_view()),
 
 ]

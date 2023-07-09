@@ -22,12 +22,6 @@ class ProjectView(APIView):
     def patch(self, request):
         pass
 
-# @api_view(['GET', 'POST'])
-# class MeasurementViewSet(ModelViewSet):
-#     if request.method == 'GET':
-#         pass
-#     if request.method == 'POST':
-#         pass
 
 class MeasurementView(APIView):
     def post(self, request):
