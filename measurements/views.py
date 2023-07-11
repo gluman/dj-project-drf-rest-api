@@ -1,8 +1,10 @@
 from rest_framework import request
 from rest_framework.decorators import api_view
 from rest_framework.views import APIView
+# from django.db.models import models
 from rest_framework.viewsets import ModelViewSet
-from models import Project, Measurement
+from .models import Project, Measurement
+
 
 # @api_view(['POST', 'PATCH'])
 # class ProjectViewSet(ModelViewSet):
@@ -16,6 +18,7 @@ class ProjectView(APIView):
 
     def get(self, request):
         pass
+
     def post(self, request):
         pass
 
@@ -26,4 +29,3 @@ class ProjectView(APIView):
 class MeasurementView(APIView):
     def post(self, request):
         pass
-
