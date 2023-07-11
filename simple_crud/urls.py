@@ -15,18 +15,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from measurements.views import ProjectViewSet, MeasurementViewSet
-from rest_framework.routers import DefaultRouter
+from rest_framework import routers
+from measurements.views import SensorViewSet, MeasurementViewSet
+from rest_framework.routers import SimpleRouter
 
-# TODO: настройте роутер и подключите `ProjectViewSet` и `MeasurementViewSet`
+#  настройте роутер и подключите `ProjectViewSet` и `MeasurementViewSet` - Done
 
-r = DefaultRouter()
-r.register('measurement', MeasurementViewSet)
-r.register('projects', MeasurementViewSet)
+
+route_sensor = routers.DefaultRouter()
+route_sensor.register('sensors', SensorViewSet)
+route_measurement = routers.SimpleRouter()
+route_measurement.register('measurement', MeasurementViewSet)
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('/projects/<pk>', ProjectView.as_view()),
-    path('/measurement/<pk>', MeasurementView.as_view()),
-
 ]
+urlpatterns += route_sensor.urls
+urlpatterns += route_measurement.urls

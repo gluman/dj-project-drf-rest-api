@@ -1,12 +1,13 @@
 from rest_framework import serializers
-from measurements.models import Project, Measurement
+from measurements.models import Sensor, Measurement
 
 
-class ProjectSerializer(serializers.ModelSerializer):
+class SensorSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Project
-        fields = ['id', 'name', 'latitude', 'longitude', 'created_at']
+        model = Sensor
+        fields = ['name', 'latitude', 'longitude', 'created_at', 'description']
+
 class MeasurementSerializer(serializers.ModelSerializer):
     class Meta:
         model = Measurement
-        fields = ['id', 'project', 'value', 'created_at']
+        fields = ['sensor', 'value', 'created_at']
